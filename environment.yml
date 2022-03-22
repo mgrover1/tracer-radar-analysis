@@ -21,5 +21,6 @@ dependencies:
   - pip
   - pip:
       - s3fs
+      - nexradaws
       - git+https://github.com/pydata/xarray
 
