@@ -315,6 +315,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#read-in-and-plot-the-data">
    Read in and Plot the Data
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loop-through-and-plot">
+     Loop through and plot
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -344,6 +351,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#read-in-and-plot-the-data">
    Read in and Plot the Data
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loop-through-and-plot">
+     Loop through and plot
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -370,6 +384,16 @@ title="Print to PDF"
 </div>
 <section id="grab-data">
 <h2>Grab Data<a class="headerlink" href="#grab-data" title="Permalink to this headline">#</a></h2>
+<p>We use the ARM Live API, accessible through ACT!</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arm-doe.github.io/ACT/API/generated/act.discovery.download_data.html#act.discovery.download_data">Download Data API</a></p></li>
+</ul>
+<p>We are interested in the C-band radar, which is utilizing a cell-tracking algorithm, with the datastream</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://adc.arm.gov/discovery/#/results/s::houcsapr"><strong><code class="docutils literal notranslate"><span class="pre">houcsapr2cfrS2.a1</span></code></strong></a></p></li>
+</ul>
+<p>One of the better cases was from June 2, 2022.</p>
+<p>This line will download data into the a new directory with the datastream name (<code class="docutils literal notranslate"><span class="pre">/houcsapr2cfrS2.a1</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">june2_csapr_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span>
@@ -395,6 +419,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<section id="loop-through-and-plot">
+<h3>Loop through and plot<a class="headerlink" href="#loop-through-and-plot" title="Permalink to this headline">#</a></h3>
+<p>We read in the data, check the scan type (a data cleaning step), and plot a basic <code class="docutils literal notranslate"><span class="pre">RadarDisplay</span></code> which will automatically detect whether the plot is a vertical cross section (RHI or VPT), or a horizontal scan (PPI)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">radar_files</span><span class="p">:</span>
@@ -419,905 +446,906 @@ title="Print to PDF"
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_1.png" src="../_images/june2-2022_6_1.png" />
+<img alt="../_images/june2-2022_7_1.png" src="../_images/june2-2022_7_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.000459.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_3.png" src="../_images/june2-2022_6_3.png" />
+<img alt="../_images/june2-2022_7_3.png" src="../_images/june2-2022_7_3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.000551.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_5.png" src="../_images/june2-2022_6_5.png" />
+<img alt="../_images/june2-2022_7_5.png" src="../_images/june2-2022_7_5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.000750.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_7.png" src="../_images/june2-2022_6_7.png" />
+<img alt="../_images/june2-2022_7_7.png" src="../_images/june2-2022_7_7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.001025.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_9.png" src="../_images/june2-2022_6_9.png" />
+<img alt="../_images/june2-2022_7_9.png" src="../_images/june2-2022_7_9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.001506.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_11.png" src="../_images/june2-2022_6_11.png" />
+<img alt="../_images/june2-2022_7_11.png" src="../_images/june2-2022_7_11.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.001558.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_13.png" src="../_images/june2-2022_6_13.png" />
+<img alt="../_images/june2-2022_7_13.png" src="../_images/june2-2022_7_13.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.001757.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_15.png" src="../_images/june2-2022_6_15.png" />
+<img alt="../_images/june2-2022_7_15.png" src="../_images/june2-2022_7_15.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.002018.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_17.png" src="../_images/june2-2022_6_17.png" />
+<img alt="../_images/june2-2022_7_17.png" src="../_images/june2-2022_7_17.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.002501.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_19.png" src="../_images/june2-2022_6_19.png" />
+<img alt="../_images/june2-2022_7_19.png" src="../_images/june2-2022_7_19.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.002553.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_21.png" src="../_images/june2-2022_6_21.png" />
+<img alt="../_images/june2-2022_7_21.png" src="../_images/june2-2022_7_21.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.002751.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_23.png" src="../_images/june2-2022_6_23.png" />
+<img alt="../_images/june2-2022_7_23.png" src="../_images/june2-2022_7_23.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.003024.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_25.png" src="../_images/june2-2022_6_25.png" />
+<img alt="../_images/june2-2022_7_25.png" src="../_images/june2-2022_7_25.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.003506.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_27.png" src="../_images/june2-2022_6_27.png" />
+<img alt="../_images/june2-2022_7_27.png" src="../_images/june2-2022_7_27.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.003558.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_29.png" src="../_images/june2-2022_6_29.png" />
+<img alt="../_images/june2-2022_7_29.png" src="../_images/june2-2022_7_29.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.003756.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_31.png" src="../_images/june2-2022_6_31.png" />
+<img alt="../_images/june2-2022_7_31.png" src="../_images/june2-2022_7_31.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.004019.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_33.png" src="../_images/june2-2022_6_33.png" />
+<img alt="../_images/june2-2022_7_33.png" src="../_images/june2-2022_7_33.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.004459.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_35.png" src="../_images/june2-2022_6_35.png" />
+<img alt="../_images/june2-2022_7_35.png" src="../_images/june2-2022_7_35.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.004551.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_37.png" src="../_images/june2-2022_6_37.png" />
+<img alt="../_images/june2-2022_7_37.png" src="../_images/june2-2022_7_37.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.004750.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_39.png" src="../_images/june2-2022_6_39.png" />
+<img alt="../_images/june2-2022_7_39.png" src="../_images/june2-2022_7_39.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.005026.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_41.png" src="../_images/june2-2022_6_41.png" />
+<img alt="../_images/june2-2022_7_41.png" src="../_images/june2-2022_7_41.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.005507.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_43.png" src="../_images/june2-2022_6_43.png" />
+<img alt="../_images/june2-2022_7_43.png" src="../_images/june2-2022_7_43.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.005559.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_45.png" src="../_images/june2-2022_6_45.png" />
+<img alt="../_images/june2-2022_7_45.png" src="../_images/june2-2022_7_45.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.005757.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_47.png" src="../_images/june2-2022_6_47.png" />
+<img alt="../_images/june2-2022_7_47.png" src="../_images/june2-2022_7_47.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.010018.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_49.png" src="../_images/june2-2022_6_49.png" />
+<img alt="../_images/june2-2022_7_49.png" src="../_images/june2-2022_7_49.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.010459.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_51.png" src="../_images/june2-2022_6_51.png" />
+<img alt="../_images/june2-2022_7_51.png" src="../_images/june2-2022_7_51.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.010551.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_53.png" src="../_images/june2-2022_6_53.png" />
+<img alt="../_images/june2-2022_7_53.png" src="../_images/june2-2022_7_53.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.010750.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_55.png" src="../_images/june2-2022_6_55.png" />
+<img alt="../_images/june2-2022_7_55.png" src="../_images/june2-2022_7_55.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.011025.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_57.png" src="../_images/june2-2022_6_57.png" />
+<img alt="../_images/june2-2022_7_57.png" src="../_images/june2-2022_7_57.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.011508.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_59.png" src="../_images/june2-2022_6_59.png" />
+<img alt="../_images/june2-2022_7_59.png" src="../_images/june2-2022_7_59.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.011600.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_61.png" src="../_images/june2-2022_6_61.png" />
+<img alt="../_images/june2-2022_7_61.png" src="../_images/june2-2022_7_61.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.011759.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_63.png" src="../_images/june2-2022_6_63.png" />
+<img alt="../_images/june2-2022_7_63.png" src="../_images/june2-2022_7_63.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.012016.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_65.png" src="../_images/june2-2022_6_65.png" />
+<img alt="../_images/june2-2022_7_65.png" src="../_images/june2-2022_7_65.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.012500.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_67.png" src="../_images/june2-2022_6_67.png" />
+<img alt="../_images/june2-2022_7_67.png" src="../_images/june2-2022_7_67.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.012553.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_69.png" src="../_images/june2-2022_6_69.png" />
+<img alt="../_images/june2-2022_7_69.png" src="../_images/june2-2022_7_69.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.012751.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_71.png" src="../_images/june2-2022_6_71.png" />
+<img alt="../_images/june2-2022_7_71.png" src="../_images/june2-2022_7_71.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.013024.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_73.png" src="../_images/june2-2022_6_73.png" />
+<img alt="../_images/june2-2022_7_73.png" src="../_images/june2-2022_7_73.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.013507.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_75.png" src="../_images/june2-2022_6_75.png" />
+<img alt="../_images/june2-2022_7_75.png" src="../_images/june2-2022_7_75.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.013559.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_77.png" src="../_images/june2-2022_6_77.png" />
+<img alt="../_images/june2-2022_7_77.png" src="../_images/june2-2022_7_77.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.013758.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_79.png" src="../_images/june2-2022_6_79.png" />
+<img alt="../_images/june2-2022_7_79.png" src="../_images/june2-2022_7_79.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.014017.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_81.png" src="../_images/june2-2022_6_81.png" />
+<img alt="../_images/june2-2022_7_81.png" src="../_images/june2-2022_7_81.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.014500.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_83.png" src="../_images/june2-2022_6_83.png" />
+<img alt="../_images/june2-2022_7_83.png" src="../_images/june2-2022_7_83.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.014552.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_85.png" src="../_images/june2-2022_6_85.png" />
+<img alt="../_images/june2-2022_7_85.png" src="../_images/june2-2022_7_85.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.014750.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_87.png" src="../_images/june2-2022_6_87.png" />
+<img alt="../_images/june2-2022_7_87.png" src="../_images/june2-2022_7_87.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.015024.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_89.png" src="../_images/june2-2022_6_89.png" />
+<img alt="../_images/june2-2022_7_89.png" src="../_images/june2-2022_7_89.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.015507.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_91.png" src="../_images/june2-2022_6_91.png" />
+<img alt="../_images/june2-2022_7_91.png" src="../_images/june2-2022_7_91.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.015559.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_93.png" src="../_images/june2-2022_6_93.png" />
+<img alt="../_images/june2-2022_7_93.png" src="../_images/june2-2022_7_93.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.015757.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_95.png" src="../_images/june2-2022_6_95.png" />
+<img alt="../_images/june2-2022_7_95.png" src="../_images/june2-2022_7_95.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.020018.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_97.png" src="../_images/june2-2022_6_97.png" />
+<img alt="../_images/june2-2022_7_97.png" src="../_images/june2-2022_7_97.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.020458.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_99.png" src="../_images/june2-2022_6_99.png" />
+<img alt="../_images/june2-2022_7_99.png" src="../_images/june2-2022_7_99.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.020550.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_101.png" src="../_images/june2-2022_6_101.png" />
+<img alt="../_images/june2-2022_7_101.png" src="../_images/june2-2022_7_101.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.020749.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_103.png" src="../_images/june2-2022_6_103.png" />
+<img alt="../_images/june2-2022_7_103.png" src="../_images/june2-2022_7_103.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.021026.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_105.png" src="../_images/june2-2022_6_105.png" />
+<img alt="../_images/june2-2022_7_105.png" src="../_images/june2-2022_7_105.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.021506.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_107.png" src="../_images/june2-2022_6_107.png" />
+<img alt="../_images/june2-2022_7_107.png" src="../_images/june2-2022_7_107.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.021558.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_109.png" src="../_images/june2-2022_6_109.png" />
+<img alt="../_images/june2-2022_7_109.png" src="../_images/june2-2022_7_109.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.021757.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_111.png" src="../_images/june2-2022_6_111.png" />
+<img alt="../_images/june2-2022_7_111.png" src="../_images/june2-2022_7_111.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.022018.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_113.png" src="../_images/june2-2022_6_113.png" />
+<img alt="../_images/june2-2022_7_113.png" src="../_images/june2-2022_7_113.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.022500.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_115.png" src="../_images/june2-2022_6_115.png" />
+<img alt="../_images/june2-2022_7_115.png" src="../_images/june2-2022_7_115.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.022552.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_117.png" src="../_images/june2-2022_6_117.png" />
+<img alt="../_images/june2-2022_7_117.png" src="../_images/june2-2022_7_117.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.022750.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_119.png" src="../_images/june2-2022_6_119.png" />
+<img alt="../_images/june2-2022_7_119.png" src="../_images/june2-2022_7_119.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.023025.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_121.png" src="../_images/june2-2022_6_121.png" />
+<img alt="../_images/june2-2022_7_121.png" src="../_images/june2-2022_7_121.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.023505.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_123.png" src="../_images/june2-2022_6_123.png" />
+<img alt="../_images/june2-2022_7_123.png" src="../_images/june2-2022_7_123.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.023557.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_125.png" src="../_images/june2-2022_6_125.png" />
+<img alt="../_images/june2-2022_7_125.png" src="../_images/june2-2022_7_125.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.023756.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_127.png" src="../_images/june2-2022_6_127.png" />
+<img alt="../_images/june2-2022_7_127.png" src="../_images/june2-2022_7_127.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.024020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_129.png" src="../_images/june2-2022_6_129.png" />
+<img alt="../_images/june2-2022_7_129.png" src="../_images/june2-2022_7_129.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.024501.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_131.png" src="../_images/june2-2022_6_131.png" />
+<img alt="../_images/june2-2022_7_131.png" src="../_images/june2-2022_7_131.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.024554.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_133.png" src="../_images/june2-2022_6_133.png" />
+<img alt="../_images/june2-2022_7_133.png" src="../_images/june2-2022_7_133.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.024752.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_135.png" src="../_images/june2-2022_6_135.png" />
+<img alt="../_images/june2-2022_7_135.png" src="../_images/june2-2022_7_135.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.025023.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_137.png" src="../_images/june2-2022_6_137.png" />
+<img alt="../_images/june2-2022_7_137.png" src="../_images/june2-2022_7_137.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.025504.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_139.png" src="../_images/june2-2022_6_139.png" />
+<img alt="../_images/june2-2022_7_139.png" src="../_images/june2-2022_7_139.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.025556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_141.png" src="../_images/june2-2022_6_141.png" />
+<img alt="../_images/june2-2022_7_141.png" src="../_images/june2-2022_7_141.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.025754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_143.png" src="../_images/june2-2022_6_143.png" />
+<img alt="../_images/june2-2022_7_143.png" src="../_images/june2-2022_7_143.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.030021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_145.png" src="../_images/june2-2022_6_145.png" />
+<img alt="../_images/june2-2022_7_145.png" src="../_images/june2-2022_7_145.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.030503.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_147.png" src="../_images/june2-2022_6_147.png" />
+<img alt="../_images/june2-2022_7_147.png" src="../_images/june2-2022_7_147.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.030555.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_149.png" src="../_images/june2-2022_6_149.png" />
+<img alt="../_images/june2-2022_7_149.png" src="../_images/june2-2022_7_149.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.030754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_151.png" src="../_images/june2-2022_6_151.png" />
+<img alt="../_images/june2-2022_7_151.png" src="../_images/june2-2022_7_151.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.031021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_153.png" src="../_images/june2-2022_6_153.png" />
+<img alt="../_images/june2-2022_7_153.png" src="../_images/june2-2022_7_153.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.031502.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_155.png" src="../_images/june2-2022_6_155.png" />
+<img alt="../_images/june2-2022_7_155.png" src="../_images/june2-2022_7_155.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.031554.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_157.png" src="../_images/june2-2022_6_157.png" />
+<img alt="../_images/june2-2022_7_157.png" src="../_images/june2-2022_7_157.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.031753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_159.png" src="../_images/june2-2022_6_159.png" />
+<img alt="../_images/june2-2022_7_159.png" src="../_images/june2-2022_7_159.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.032022.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_161.png" src="../_images/june2-2022_6_161.png" />
+<img alt="../_images/june2-2022_7_161.png" src="../_images/june2-2022_7_161.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.032503.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_163.png" src="../_images/june2-2022_6_163.png" />
+<img alt="../_images/june2-2022_7_163.png" src="../_images/june2-2022_7_163.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.032555.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_165.png" src="../_images/june2-2022_6_165.png" />
+<img alt="../_images/june2-2022_7_165.png" src="../_images/june2-2022_7_165.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.032754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_167.png" src="../_images/june2-2022_6_167.png" />
+<img alt="../_images/june2-2022_7_167.png" src="../_images/june2-2022_7_167.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.033021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_169.png" src="../_images/june2-2022_6_169.png" />
+<img alt="../_images/june2-2022_7_169.png" src="../_images/june2-2022_7_169.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.033502.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_171.png" src="../_images/june2-2022_6_171.png" />
+<img alt="../_images/june2-2022_7_171.png" src="../_images/june2-2022_7_171.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.033752.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_173.png" src="../_images/june2-2022_6_173.png" />
+<img alt="../_images/june2-2022_7_173.png" src="../_images/june2-2022_7_173.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.034023.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_175.png" src="../_images/june2-2022_6_175.png" />
+<img alt="../_images/june2-2022_7_175.png" src="../_images/june2-2022_7_175.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.034503.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_177.png" src="../_images/june2-2022_6_177.png" />
+<img alt="../_images/june2-2022_7_177.png" src="../_images/june2-2022_7_177.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.034555.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_179.png" src="../_images/june2-2022_6_179.png" />
+<img alt="../_images/june2-2022_7_179.png" src="../_images/june2-2022_7_179.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.034754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_181.png" src="../_images/june2-2022_6_181.png" />
+<img alt="../_images/june2-2022_7_181.png" src="../_images/june2-2022_7_181.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.035021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_183.png" src="../_images/june2-2022_6_183.png" />
+<img alt="../_images/june2-2022_7_183.png" src="../_images/june2-2022_7_183.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.035502.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_185.png" src="../_images/june2-2022_6_185.png" />
+<img alt="../_images/june2-2022_7_185.png" src="../_images/june2-2022_7_185.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.035752.nc
 houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.040556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_187.png" src="../_images/june2-2022_6_187.png" />
+<img alt="../_images/june2-2022_7_187.png" src="../_images/june2-2022_7_187.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.040755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_189.png" src="../_images/june2-2022_6_189.png" />
+<img alt="../_images/june2-2022_7_189.png" src="../_images/june2-2022_7_189.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.041020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_191.png" src="../_images/june2-2022_6_191.png" />
+<img alt="../_images/june2-2022_7_191.png" src="../_images/june2-2022_7_191.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.041754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_193.png" src="../_images/june2-2022_6_193.png" />
+<img alt="../_images/june2-2022_7_193.png" src="../_images/june2-2022_7_193.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.042021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_195.png" src="../_images/june2-2022_6_195.png" />
+<img alt="../_images/june2-2022_7_195.png" src="../_images/june2-2022_7_195.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.042504.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_197.png" src="../_images/june2-2022_6_197.png" />
+<img alt="../_images/june2-2022_7_197.png" src="../_images/june2-2022_7_197.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.042556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_199.png" src="../_images/june2-2022_6_199.png" />
+<img alt="../_images/june2-2022_7_199.png" src="../_images/june2-2022_7_199.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.042754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_201.png" src="../_images/june2-2022_6_201.png" />
+<img alt="../_images/june2-2022_7_201.png" src="../_images/june2-2022_7_201.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.043501.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_203.png" src="../_images/june2-2022_6_203.png" />
+<img alt="../_images/june2-2022_7_203.png" src="../_images/june2-2022_7_203.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.043553.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_205.png" src="../_images/june2-2022_6_205.png" />
+<img alt="../_images/june2-2022_7_205.png" src="../_images/june2-2022_7_205.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.044024.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_207.png" src="../_images/june2-2022_6_207.png" />
+<img alt="../_images/june2-2022_7_207.png" src="../_images/june2-2022_7_207.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.044505.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_209.png" src="../_images/june2-2022_6_209.png" />
+<img alt="../_images/june2-2022_7_209.png" src="../_images/june2-2022_7_209.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.044557.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_211.png" src="../_images/june2-2022_6_211.png" />
+<img alt="../_images/june2-2022_7_211.png" src="../_images/june2-2022_7_211.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.045019.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_213.png" src="../_images/june2-2022_6_213.png" />
+<img alt="../_images/june2-2022_7_213.png" src="../_images/june2-2022_7_213.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.045502.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_215.png" src="../_images/june2-2022_6_215.png" />
+<img alt="../_images/june2-2022_7_215.png" src="../_images/june2-2022_7_215.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.045753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_217.png" src="../_images/june2-2022_6_217.png" />
+<img alt="../_images/june2-2022_7_217.png" src="../_images/june2-2022_7_217.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.050755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_219.png" src="../_images/june2-2022_6_219.png" />
+<img alt="../_images/june2-2022_7_219.png" src="../_images/june2-2022_7_219.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.051020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_221.png" src="../_images/june2-2022_6_221.png" />
+<img alt="../_images/june2-2022_7_221.png" src="../_images/june2-2022_7_221.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.051555.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_223.png" src="../_images/june2-2022_6_223.png" />
+<img alt="../_images/june2-2022_7_223.png" src="../_images/june2-2022_7_223.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.051753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_225.png" src="../_images/june2-2022_6_225.png" />
+<img alt="../_images/june2-2022_7_225.png" src="../_images/june2-2022_7_225.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.052022.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_227.png" src="../_images/june2-2022_6_227.png" />
+<img alt="../_images/june2-2022_7_227.png" src="../_images/june2-2022_7_227.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.052503.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_229.png" src="../_images/june2-2022_6_229.png" />
+<img alt="../_images/june2-2022_7_229.png" src="../_images/june2-2022_7_229.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.052556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_231.png" src="../_images/june2-2022_6_231.png" />
+<img alt="../_images/june2-2022_7_231.png" src="../_images/june2-2022_7_231.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.052754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_233.png" src="../_images/june2-2022_6_233.png" />
+<img alt="../_images/june2-2022_7_233.png" src="../_images/june2-2022_7_233.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.053021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_235.png" src="../_images/june2-2022_6_235.png" />
+<img alt="../_images/june2-2022_7_235.png" src="../_images/june2-2022_7_235.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.053504.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_237.png" src="../_images/june2-2022_6_237.png" />
+<img alt="../_images/june2-2022_7_237.png" src="../_images/june2-2022_7_237.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.053556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_239.png" src="../_images/june2-2022_6_239.png" />
+<img alt="../_images/june2-2022_7_239.png" src="../_images/june2-2022_7_239.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.053755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_241.png" src="../_images/june2-2022_6_241.png" />
+<img alt="../_images/june2-2022_7_241.png" src="../_images/june2-2022_7_241.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.054505.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_243.png" src="../_images/june2-2022_6_243.png" />
+<img alt="../_images/june2-2022_7_243.png" src="../_images/june2-2022_7_243.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.054756.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_245.png" src="../_images/june2-2022_6_245.png" />
+<img alt="../_images/june2-2022_7_245.png" src="../_images/june2-2022_7_245.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.055504.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_247.png" src="../_images/june2-2022_6_247.png" />
+<img alt="../_images/june2-2022_7_247.png" src="../_images/june2-2022_7_247.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.055755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_249.png" src="../_images/june2-2022_6_249.png" />
+<img alt="../_images/june2-2022_7_249.png" src="../_images/june2-2022_7_249.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.060020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_251.png" src="../_images/june2-2022_6_251.png" />
+<img alt="../_images/june2-2022_7_251.png" src="../_images/june2-2022_7_251.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.060753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_253.png" src="../_images/june2-2022_6_253.png" />
+<img alt="../_images/june2-2022_7_253.png" src="../_images/june2-2022_7_253.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.061021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_255.png" src="../_images/june2-2022_6_255.png" />
+<img alt="../_images/june2-2022_7_255.png" src="../_images/june2-2022_7_255.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.061556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_257.png" src="../_images/june2-2022_6_257.png" />
+<img alt="../_images/june2-2022_7_257.png" src="../_images/june2-2022_7_257.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.061755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_259.png" src="../_images/june2-2022_6_259.png" />
+<img alt="../_images/june2-2022_7_259.png" src="../_images/june2-2022_7_259.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.062502.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_261.png" src="../_images/june2-2022_6_261.png" />
+<img alt="../_images/june2-2022_7_261.png" src="../_images/june2-2022_7_261.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.062554.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_263.png" src="../_images/june2-2022_6_263.png" />
+<img alt="../_images/june2-2022_7_263.png" src="../_images/june2-2022_7_263.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.063557.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_265.png" src="../_images/june2-2022_6_265.png" />
+<img alt="../_images/june2-2022_7_265.png" src="../_images/june2-2022_7_265.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.064020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_267.png" src="../_images/june2-2022_6_267.png" />
+<img alt="../_images/june2-2022_7_267.png" src="../_images/june2-2022_7_267.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.064554.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_269.png" src="../_images/june2-2022_6_269.png" />
+<img alt="../_images/june2-2022_7_269.png" src="../_images/june2-2022_7_269.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.065023.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_271.png" src="../_images/june2-2022_6_271.png" />
+<img alt="../_images/june2-2022_7_271.png" src="../_images/june2-2022_7_271.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.065556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_273.png" src="../_images/june2-2022_6_273.png" />
+<img alt="../_images/june2-2022_7_273.png" src="../_images/june2-2022_7_273.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.070021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_275.png" src="../_images/june2-2022_6_275.png" />
+<img alt="../_images/june2-2022_7_275.png" src="../_images/june2-2022_7_275.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.070557.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_277.png" src="../_images/june2-2022_6_277.png" />
+<img alt="../_images/june2-2022_7_277.png" src="../_images/june2-2022_7_277.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.070756.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_279.png" src="../_images/june2-2022_6_279.png" />
+<img alt="../_images/june2-2022_7_279.png" src="../_images/june2-2022_7_279.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.071020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_281.png" src="../_images/june2-2022_6_281.png" />
+<img alt="../_images/june2-2022_7_281.png" src="../_images/june2-2022_7_281.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.071753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_283.png" src="../_images/june2-2022_6_283.png" />
+<img alt="../_images/june2-2022_7_283.png" src="../_images/june2-2022_7_283.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.072022.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_285.png" src="../_images/june2-2022_6_285.png" />
+<img alt="../_images/june2-2022_7_285.png" src="../_images/june2-2022_7_285.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.072755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_287.png" src="../_images/june2-2022_6_287.png" />
+<img alt="../_images/june2-2022_7_287.png" src="../_images/june2-2022_7_287.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.073021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_289.png" src="../_images/june2-2022_6_289.png" />
+<img alt="../_images/june2-2022_7_289.png" src="../_images/june2-2022_7_289.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.074022.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_291.png" src="../_images/june2-2022_6_291.png" />
+<img alt="../_images/june2-2022_7_291.png" src="../_images/june2-2022_7_291.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.074503.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_293.png" src="../_images/june2-2022_6_293.png" />
+<img alt="../_images/june2-2022_7_293.png" src="../_images/june2-2022_7_293.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.074556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_295.png" src="../_images/june2-2022_6_295.png" />
+<img alt="../_images/june2-2022_7_295.png" src="../_images/june2-2022_7_295.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.074754.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_297.png" src="../_images/june2-2022_6_297.png" />
+<img alt="../_images/june2-2022_7_297.png" src="../_images/june2-2022_7_297.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.075021.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_299.png" src="../_images/june2-2022_6_299.png" />
+<img alt="../_images/june2-2022_7_299.png" src="../_images/june2-2022_7_299.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.075504.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_301.png" src="../_images/june2-2022_6_301.png" />
+<img alt="../_images/june2-2022_7_301.png" src="../_images/june2-2022_7_301.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.075556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_303.png" src="../_images/june2-2022_6_303.png" />
+<img alt="../_images/june2-2022_7_303.png" src="../_images/june2-2022_7_303.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.075755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_305.png" src="../_images/june2-2022_6_305.png" />
+<img alt="../_images/june2-2022_7_305.png" src="../_images/june2-2022_7_305.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.080502.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_307.png" src="../_images/june2-2022_6_307.png" />
+<img alt="../_images/june2-2022_7_307.png" src="../_images/june2-2022_7_307.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.080554.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_309.png" src="../_images/june2-2022_6_309.png" />
+<img alt="../_images/june2-2022_7_309.png" src="../_images/june2-2022_7_309.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.080753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_311.png" src="../_images/june2-2022_6_311.png" />
+<img alt="../_images/june2-2022_7_311.png" src="../_images/june2-2022_7_311.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.081023.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_313.png" src="../_images/june2-2022_6_313.png" />
+<img alt="../_images/june2-2022_7_313.png" src="../_images/june2-2022_7_313.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.081505.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_315.png" src="../_images/june2-2022_6_315.png" />
+<img alt="../_images/june2-2022_7_315.png" src="../_images/june2-2022_7_315.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.081756.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_317.png" src="../_images/june2-2022_6_317.png" />
+<img alt="../_images/june2-2022_7_317.png" src="../_images/june2-2022_7_317.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.082750.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_319.png" src="../_images/june2-2022_6_319.png" />
+<img alt="../_images/june2-2022_7_319.png" src="../_images/june2-2022_7_319.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.083505.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_321.png" src="../_images/june2-2022_6_321.png" />
+<img alt="../_images/june2-2022_7_321.png" src="../_images/june2-2022_7_321.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.085023.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_323.png" src="../_images/june2-2022_6_323.png" />
+<img alt="../_images/june2-2022_7_323.png" src="../_images/june2-2022_7_323.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.090556.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_325.png" src="../_images/june2-2022_6_325.png" />
+<img alt="../_images/june2-2022_7_325.png" src="../_images/june2-2022_7_325.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.091020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_327.png" src="../_images/june2-2022_6_327.png" />
+<img alt="../_images/june2-2022_7_327.png" src="../_images/june2-2022_7_327.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.091555.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_329.png" src="../_images/june2-2022_6_329.png" />
+<img alt="../_images/june2-2022_7_329.png" src="../_images/june2-2022_7_329.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.092557.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_331.png" src="../_images/june2-2022_6_331.png" />
+<img alt="../_images/june2-2022_7_331.png" src="../_images/june2-2022_7_331.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.092756.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_333.png" src="../_images/june2-2022_6_333.png" />
+<img alt="../_images/june2-2022_7_333.png" src="../_images/june2-2022_7_333.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.093503.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_335.png" src="../_images/june2-2022_6_335.png" />
+<img alt="../_images/june2-2022_7_335.png" src="../_images/june2-2022_7_335.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.093555.nc
 ppi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_337.png" src="../_images/june2-2022_6_337.png" />
+<img alt="../_images/june2-2022_7_337.png" src="../_images/june2-2022_7_337.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.093753.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_339.png" src="../_images/june2-2022_6_339.png" />
+<img alt="../_images/june2-2022_7_339.png" src="../_images/june2-2022_7_339.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.094755.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_341.png" src="../_images/june2-2022_6_341.png" />
+<img alt="../_images/june2-2022_7_341.png" src="../_images/june2-2022_7_341.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.095020.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_343.png" src="../_images/june2-2022_6_343.png" />
+<img alt="../_images/june2-2022_7_343.png" src="../_images/june2-2022_7_343.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.100753.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_345.png" src="../_images/june2-2022_6_345.png" />
+<img alt="../_images/june2-2022_7_345.png" src="../_images/june2-2022_7_345.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.101003.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_347.png" src="../_images/june2-2022_6_347.png" />
+<img alt="../_images/june2-2022_7_347.png" src="../_images/june2-2022_7_347.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.101426.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_349.png" src="../_images/june2-2022_6_349.png" />
+<img alt="../_images/june2-2022_7_349.png" src="../_images/june2-2022_7_349.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.102746.nc
 other
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_351.png" src="../_images/june2-2022_6_351.png" />
+<img alt="../_images/june2-2022_7_351.png" src="../_images/june2-2022_7_351.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.103028.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_353.png" src="../_images/june2-2022_6_353.png" />
+<img alt="../_images/june2-2022_7_353.png" src="../_images/june2-2022_7_353.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.103510.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_355.png" src="../_images/june2-2022_6_355.png" />
+<img alt="../_images/june2-2022_7_355.png" src="../_images/june2-2022_7_355.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.103948.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_357.png" src="../_images/june2-2022_6_357.png" />
+<img alt="../_images/june2-2022_7_357.png" src="../_images/june2-2022_7_357.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>houcsapr2cfrS2.a1/houcsapr2cfrS2.a1.20220602.104018.nc
 rhi
 </pre></div>
 </div>
-<img alt="../_images/june2-2022_6_359.png" src="../_images/june2-2022_6_359.png" />
+<img alt="../_images/june2-2022_7_359.png" src="../_images/june2-2022_7_359.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
