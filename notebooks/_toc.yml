@@ -4,3 +4,6 @@ parts:
 - caption: March 22, 2022
   chapters:
     - glob: march-22-2022/*
+- caption: Cell Tracking
+  chapters:
+    - glob: radar-tracking/*
